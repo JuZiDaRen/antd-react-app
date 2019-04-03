@@ -17,6 +17,7 @@ export default {
     define: {
         APP_TYPE: APP_TYPE || '',
       },
+    ignoreMomentLocale: true,
     routes:[
         {
             path:'/',
