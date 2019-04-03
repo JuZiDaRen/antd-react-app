@@ -1,16 +1,42 @@
+const { NODE_ENV, APP_TYPE, TEST } = process.env;
+
 export default {
-    singular: true,  //单页应用
     plugins:[
         [
             'umi-plugin-react',{
                 antd:true,
-                dva:true
+                dva:true,
+                locale: {
+                    enable: true, // default false
+                    default: 'zh-CN', // default zh-CN
+                    baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
+                  }
             }
         ]
     ],
+    define: {
+        APP_TYPE: APP_TYPE || '',
+      },
     routes:[
         {
-            
+            path:'/',
+            component:'../layouts/BasicLayout',
+            routes:[
+            { path: '/', redirect: '/list/basic-list' },
+                 // list
+            {
+            path: '/list',
+            icon: 'table',
+            name: 'list',
+            routes: [
+                {
+                path: '/list/basic-list',
+                name: 'basiclist',
+                component: './List/BasicList',
+                }       
+            ],
+            }
+            ]
         }
     ]
 }
