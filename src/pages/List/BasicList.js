@@ -5,8 +5,6 @@ import { connect } from 'dva';
 import {
   List,
   Card,
-  Row,
-  Col,
   Radio,
   Input,
   Progress,
@@ -112,10 +110,13 @@ class BasicList extends PureComponent {
   };
 
   render() {
+
     const {
       list: { list },
       loading,
     } = this.props;
+
+
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -156,12 +157,12 @@ class BasicList extends PureComponent {
         <Search className={styles.extraContentSearch} placeholder="请输入" onSearch={() => ({})} />
       </div>
     );
-
+    
+    //分页页脚参数-2019-04-03
     const paginationProps = {
       showSizeChanger: true,
-      showQuickJumper: true,
       pageSize: 5,
-      total: 50,
+      total: list.length,
     };
 
     const ListContent = ({ data: { owner, createdAt, percent, status } }) => (

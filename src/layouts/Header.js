@@ -153,9 +153,5 @@ class HeaderView extends Component {
 export default connect(({ user, global, setting, loading }) => ({
   currentUser: user.currentUser,
   collapsed: global.collapsed,
-  fetchingMoreNotices: loading.effects['global/fetchMoreNotices'],
-  fetchingNotices: loading.effects['global/fetchNotices'],
-  loadedAllNotices: global.loadedAllNotices,
-  notices: global.notices,
   setting,
 }))(HeaderView);
