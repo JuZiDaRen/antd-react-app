@@ -23,6 +23,8 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import Result from '@/components/Result';
 
 import styles from './BasicList.less';
+import { formatMessage } from 'umi/locale';
+
 
 const FormItem = Form.Item;
 const RadioButton = Radio.Button;
